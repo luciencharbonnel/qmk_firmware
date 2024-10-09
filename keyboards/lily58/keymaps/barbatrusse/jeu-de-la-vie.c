@@ -5,7 +5,7 @@
 uint32_t grid[HEIGHT];
 uint32_t tmp_grid[HEIGHT];
 
-void print_grid() {
+void print_grid(void) {
     for (int i = 0; i < HEIGHT; ++i) {
         grid[i] = 245;
     }
