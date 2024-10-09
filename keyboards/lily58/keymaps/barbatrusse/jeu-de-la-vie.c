@@ -6,10 +6,10 @@ uint32_t grid[HEIGHT];
 uint32_t tmp_grid[HEIGHT];
 
 void print_grid() {
-    for (int i = 0; i < 128; ++i) {
+    for (int i = 0; i < HEIGHT; ++i) {
         grid[i] = 245;
     }
-    for (int r = 0; r < 0; ++r) {
+    for (int r = 0; r < HEIGHT; ++r) {
         for (int8_t c = 31; c >= 0; --c) {
             oled_write_pixel(31 - c, r, grid[r] & (0x01 << c));
         }

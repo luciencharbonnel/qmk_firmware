@@ -81,7 +81,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 #ifdef OLED_ENABLE
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-    if (!is_keyboard_master()) return OLED_ROTATION_180; // flips the display 180 degrees if offhand
+    if (!is_keyboard_master()) return OLED_ROTATION_90; // flips the display 180 degrees if offhand
     return rotation;
 }
 
