@@ -107,7 +107,7 @@ bool oled_task_user(void) {
         // oled_write_ln(read_host_led_state(), false);
         // oled_write_ln(read_timelog(), false);
     } else {
-        jeu(42);
+        // jeu(42);
         // oled_write(read_logo(), false);
         // oled_set_cursor(0,0);
         // sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up
@@ -122,6 +122,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #ifdef OLED_ENABLE
         set_keylog(keycode, record);
 #endif
+        if (!is_keyboard_master()) {
+            jeu(keycode);
+        }
         // set_timelog();
     }
     return true;

@@ -10,7 +10,7 @@ bool            init    = false;
 uint32_t        grid[HEIGHT];
 uint32_t        tmp_grid[HEIGHT];
 
-void init_grid() {
+void init_grid(void) {
     srand(counter);
     uint32_t* grid_ptr = grid;
     uint8_t   i        = 0;
@@ -21,7 +21,7 @@ void init_grid() {
     init = true;
 }
 
-void copy_grid() {
+void copy_grid(void) {
     memcpy(grid, tmp_grid, LENGTH);
 }
 
@@ -61,7 +61,7 @@ void cell_off(int16_t x, int16_t y) {
     *cell_ptr &= ~(0x80000000 >> x);
 }
 
-void update_grid() {
+void update_grid(void) {
     uint8_t neighbors_count;
     for (int16_t x = 0; x < WIDTH; ++x) {
         for (int16_t y = 0; y < HEIGHT; ++y) {
