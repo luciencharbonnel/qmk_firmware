@@ -117,6 +117,7 @@ bool oled_task_user(void) {
     }
     // else {
     // jeu(game_keycode);
+    print_grid();
     // oled_write(read_logo(), false);
     // oled_set_cursor(0,0);
     // sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up

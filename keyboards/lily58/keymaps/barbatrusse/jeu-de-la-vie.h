@@ -8,6 +8,7 @@
 
 #define RESET KC_BSPC
 
+void print_grid(void);
 void jeu(uint16_t k);
 
 #endif

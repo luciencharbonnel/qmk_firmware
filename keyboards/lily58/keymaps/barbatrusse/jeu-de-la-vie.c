@@ -85,5 +85,5 @@ void jeu(uint16_t k) {
                 init_grid();
             }
     }
-    print_grid();
+    // print_grid();
 }
