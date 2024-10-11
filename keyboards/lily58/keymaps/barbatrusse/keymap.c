@@ -97,7 +97,7 @@ const char *read_keylog(void);
 // void set_timelog(void);
 // const char *read_timelog(void);
 
-uint16_t game_keycode = 0;
+// uint16_t game_keycode = 0;
 
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
@@ -108,22 +108,26 @@ bool oled_task_user(void) {
         // oled_write_ln(read_mode_icon(keymap_config.swap_lalt_lgui), false);
         // oled_write_ln(read_host_led_state(), false);
         // oled_write_ln(read_timelog(), false);
-    } else {
-        jeu(game_keycode);
-        // oled_write(read_logo(), false);
-        // oled_set_cursor(0,0);
-        // sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up
-        // oled_write(wpm_str, false);
     }
+    // else {
+    // jeu(game_keycode);
+    // oled_write(read_logo(), false);
+    // oled_set_cursor(0,0);
+    // sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up
+    // oled_write(wpm_str, false);
+    // }
     return false;
 }
 #endif // OLED_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
+        if (!is_keyboard_master()) {
+            jeu(keycode);
+        }
 #ifdef OLED_ENABLE
         set_keylog(keycode, record);
-        game_keycode = keycode;
+        // game_keycode = keycode;
 #endif
         // set_timelog();
     }

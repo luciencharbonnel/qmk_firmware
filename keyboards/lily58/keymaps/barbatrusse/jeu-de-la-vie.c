@@ -26,9 +26,6 @@ void copy_grid(void) {
 }
 
 void print_grid(void) {
-    for (int i = 0; i < HEIGHT; ++i) {
-        grid[i] = 245;
-    }
     for (int r = 0; r < HEIGHT; ++r) {
         for (int8_t c = 31; c >= 0; --c) {
             oled_write_pixel(31 - c, r, grid[r] & (0x01 << c));
@@ -79,6 +76,7 @@ void jeu(uint16_t k) {
     switch (k) {
         case RESET:
             init_grid();
+            break;
         default:
             if (init) {
                 update_grid();
