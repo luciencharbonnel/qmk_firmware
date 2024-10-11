@@ -99,6 +99,12 @@ const char *read_keylog(void);
 
 // uint16_t game_keycode = 0;
 
+void jeu_process_record(uint16_t keycode, keyrecord_t *record) {
+    if (!is_keyboard_master()) {
+        jeu(keycode);
+    }
+}
+
 bool oled_task_user(void) {
     if (is_keyboard_master()) {
         // If you want to change the display of OLED, you need to change here
@@ -122,11 +128,9 @@ bool oled_task_user(void) {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
-        if (!is_keyboard_master()) {
-            jeu(keycode);
-        }
 #ifdef OLED_ENABLE
         set_keylog(keycode, record);
+        jeu_process_record(keycode, record);
         // game_keycode = keycode;
 #endif
         // set_timelog();
