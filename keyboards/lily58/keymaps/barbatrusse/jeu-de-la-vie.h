@@ -2,9 +2,11 @@
 #define JEU_H
 
 #include <stdint.h>
-#define WIDTH 32
-#define HEIGHT 128
-#define LENGTH 512
+#include QMK_KEYBOARD_H
+#define WIDTH 128
+#define HEIGHT 32
+#define LENGTH_BYTES 512
+#define WIDTH_U32 4
 
 #define RESET KC_BSPC
 
