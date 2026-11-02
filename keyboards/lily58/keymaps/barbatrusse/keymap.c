@@ -100,7 +100,7 @@ const char *read_keylog(void);
 bool oled_task_user(void) {
     if (!is_keyboard_master()) {
         // If you want to change the display of OLED, you need to change here
-        oled_write_ln(read_layer_state(), false);
+        // oled_write_ln(read_layer_state(), false);
         // oled_write_ln(read_keylog(), false);
         // oled_write_ln(read_keylogs(), false);
         // oled_write_ln(read_mode_icon(keymap_config.swap_lalt_lgui), false);
@@ -108,6 +108,7 @@ bool oled_task_user(void) {
         // oled_write_ln(read_timelog(), false);
     } else {
         print_grid();
+        oled_write_ln(read_layer_state(), false);
         // oled_write(read_logo(), false);
         // oled_set_cursor(0,0);
         // sprintf(wpm_str, "WPM:%03d", get_current_wpm());  // edit the string to change wwhat shows up, edit %03d to change how many digits show up
